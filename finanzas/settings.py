@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'finanzas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get("DATABASE"), #'Hospital-django',
@@ -97,6 +97,17 @@ DATABASES = {
         'PASSWORD': os.environ.get("PASS_DB"), #12345
         'HOST': os.environ.get("HOST_DB"), #localhost
         'PORT': os.environ.get("PORT_DB") #15432,
+    }
+}"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get("DATABASE", "Hospital-django"), #'Hospital-django',
+        'USER': os.environ.get("USER_DB", "postgres"), #postgres
+        'PASSWORD': os.environ.get("PASS_DB", "12345"), #12345
+        'HOST': os.environ.get("HOST_DB", "127.0.0.1"), #localhost
+        'PORT': os.environ.get("PORT_DB", "15432") #15432,
     }
 }
 
